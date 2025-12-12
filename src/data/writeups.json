@@ -1,0 +1,59 @@
+[
+  {
+    "id": "1",
+    "slug": "auth-bypass-race-condition-oauth",
+    "date": "October 24, 2024",
+    "readTime": "8",
+    "tags": ["Web Security", "OAuth 2.0", "Race Condition", "Logic Flaw"],
+    "title": {
+      "en": "Authentication Bypass via Race Condition in OAuth Flow",
+      "id": "Bypass Otentikasi via Race Condition di Alur OAuth"
+    },
+    "description": {
+      "en": "An in-depth analysis of a high-severity race condition vulnerability found in a financial application's OAuth 2.0 implementation.",
+      "id": "Analisis mendalam mengenai kerentanan race condition tingkat tinggi yang ditemukan dalam implementasi OAuth 2.0 aplikasi keuangan."
+    },
+    "content": {
+      "en": "During a recent engagement...",
+      "id": "Selama keterlibatan baru-baru ini..."
+    }
+  },
+  {
+    "id": "2",
+    "slug": "idle-to-pwn-prototype-pollution",
+    "date": "November 02, 2024",
+    "readTime": "12",
+    "tags": ["Node.js", "Prototype Pollution", "RCE", "JavaScript"],
+    "title": {
+      "en": "From Idle to Pwn: Chaining Prototype Pollution to RCE",
+      "id": "Dari Idle ke Pwn: Rantai Prototype Pollution ke RCE"
+    },
+    "description": {
+      "en": "How a simple prototype pollution in a Node.js dashboard widget led to full remote code execution.",
+      "id": "Bagaimana prototype pollution sederhana di widget dasbor Node.js mengarah pada eksekusi kode jarak jauh penuh."
+    },
+    "content": {
+      "en": "While auditing a dashboard...",
+      "id": "Saat mengaudit dasbor..."
+    }
+  },
+  {
+    "id": "3",
+    "slug": "idor-ticket-system",
+    "date": "November 15, 2024",
+    "readTime": "6",
+    "tags": ["IDOR", "API Security", "PII Leak", "Access Control"],
+    "title": {
+      "en": "Massive Data Leak via IDOR in Support Ticket System",
+      "id": "Kebocoran Data Masif via IDOR di Sistem Tiket Dukungan"
+    },
+    "description": {
+      "en": "Uncovering an Insecure Direct Object Reference that exposed thousands of private support tickets containing PII.",
+      "id": "Mengungkap Referensi Objek Langsung Tidak Aman yang mengekspos ribuan tiket dukungan pribadi yang berisi PII."
+    },
+    "content": {
+      "en": "The target was a support portal...",
+      "id": "Targetnya adalah portal dukungan..."
+    }
+  }
+]

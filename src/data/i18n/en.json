@@ -1,0 +1,29 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "not_found": "Not Found",
+    "back": "Back"
+  },
+  "nav": {
+    "brand": "MyNotes"
+  },
+  "hero": {
+    "title": "Secure Info",
+    "subtitle": "Documenting the journey through vulnerability research, security engineering, and digital defense.",
+    "cta_read": "Read Notes",
+    "cta_about": "About Me"
+  },
+  "writeups": {
+    "page_title": "Security Notes",
+    "page_subtitle": "A collection of vulnerability research, CTF solutions, and security engineering notes.",
+    "read_time": "min read",
+    "overview": "Overview",
+    "scenario": "Scenario & Context",
+    "methodology": "Methodology",
+    "analysis": "Technical Analysis",
+    "poc": "Proof of Concept",
+    "mitigation": "Mitigation",
+    "conclusion": "Conclusion"
+  }
+}

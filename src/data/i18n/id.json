@@ -1,0 +1,20 @@
+{
+  "common": {
+    "loading": "Memuat...",
+    "error": "Kesalahan",
+    "not_found": "Tidak Ditemukan",
+    "back": "Kembali"
+  },
+  "nav": {
+    "brand": "MyNotes"
+  },
+  "writeups": {
+    "read_time": "menit baca",
+    "overview": "Gambaran Umum",
+    "scenario": "Skenario & Konteks",
+    "methodology": "Metodologi",
+    "analysis": "Analisis Teknis",
+    "mitigation": "Mitigasi",
+    "conclusion": "Kesimpulan"
+  }
+}
