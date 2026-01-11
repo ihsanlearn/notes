@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Inter, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
-import { LanguageProvider } from "@/components/i18n/LanguageProvider";
 import { Navbar } from "@/components/layout/Navbar";
 
 const plusJakarta = Plus_Jakarta_Sans({
@@ -27,8 +26,8 @@ const ibmPlexMono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.iihn.fun"),
   title: {
-    default: "iihnsight | Cybersecurity Research & Writeups",
-    template: "%s | iihnsight"
+    default: "MyKisahGua | Cybersecurity Research & Writeups",
+    template: "%s | MyKisahGua"
   },
   description:
     "Cybersecurity Research & Writeups - Ihsan Restu Adi. Ethical Hacking, Bug Bounty Hunting, and Secure Development.",
@@ -48,7 +47,7 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png"
   },
   openGraph: {
-    title: "iihnsight | Cybersecurity Research",
+    title: "MyKisahGua | Cybersecurity Research",
     description:
       "In-depth cybersecurity research, vulnerability analysis, and technical writeups by Ihsan Restu Adi.",
     url: "https://www.iihn.fun",
@@ -72,7 +71,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "iihnsight | Cybersecurity Research",
+    title: "MyKisahGua | Cybersecurity Research",
     description: "Cyber Security Research and Writeups by Ihsan Restu Adi",
     images: "https://www.iihn.fun/opengraph-image.jpg",
   },
@@ -132,7 +131,7 @@ export default function RootLayout({
                 {
                   "@type": "Organization",
                   "@id": "https://www.iihn.fun/#hero",
-                  "name": "iihnsight",
+                  "name": "MyKisahGua",
                   "url": "https://www.iihn.fun",
                   "logo": "https://www.iihn.fun/opengraph-image.jpg",
                   "founder": { "@id": "https://www.iihn.fun/#about" },
@@ -163,12 +162,10 @@ export default function RootLayout({
       <body
         className={`${plusJakarta.variable} ${inter.variable} ${ibmPlexMono.variable} antialiased bg-background text-foreground font-body`}
       >
-        <LanguageProvider>
           <div className="relative flex min-h-screen flex-col">
             <Navbar />
             <main className="flex-1">{children}</main>
           </div>
-        </LanguageProvider>
       </body>
     </html>
   );

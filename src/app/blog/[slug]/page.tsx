@@ -7,7 +7,7 @@ import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
 export async function generateStaticParams() {
-  const posts = getAllPosts();
+  const posts = await getAllPosts();
   return posts.map((post) => ({
     slug: post.slug,
   }));
@@ -15,7 +15,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const post = getPostBySlug(slug);
+  const post = await getPostBySlug(slug);
 
   if (!post) {
     return {
@@ -24,14 +24,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   }
 
   return {
-    title: `${post.title} | iihnsight`,
+    title: `${post.title} | MyKisahGua`,
     description: post.excerpt,
   };
 }
 
 export default async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const post = getPostBySlug(slug);
+  const post = await getPostBySlug(slug);
 
   if (!post) {
     notFound();
@@ -61,7 +61,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
         <time className="block text-muted-foreground">{post.date}</time>
       </div>
 
-      <div className="prose prose-slate prose-lg max-w-none prose-headings:font-bold prose-headings:tracking-tight prose-a:text-accent-foreground hover:prose-a:text-accent prose-pre:!bg-[#282c34] prose-pre:!text-gray-100 prose-pre:border prose-pre:border-border">
+      <div className="prose prose-slate prose-lg max-w-none prose-headings:font-bold prose-headings:tracking-tight prose-a:text-accent-foreground hover:prose-a:text-accent prose-pre:bg-[#282c34]! prose-pre:text-gray-100! prose-pre:border prose-pre:border-border">
         <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeHighlight]}>
           {post.content}
         </ReactMarkdown>

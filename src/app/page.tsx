@@ -2,8 +2,9 @@ import { Hero } from "@/components/ui/Hero";
 import { WriteupCard } from "@/components/ui/WriteupCard";
 import { getAllPosts } from "@/lib/mdx";
 
-export default function Home() {
-  const posts = getAllPosts().slice(0, 3); // Get latest 3 posts
+export default async function Home() {
+  const allPosts = await getAllPosts();
+  const posts = allPosts.slice(0, 3); // Get latest 3 posts
 
   return (
     <div className="flex flex-col gap-20 pb-20">

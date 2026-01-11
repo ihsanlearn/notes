@@ -2,12 +2,12 @@ import { WriteupCard } from "@/components/ui/WriteupCard";
 import { getAllPosts } from "@/lib/mdx";
 
 export const metadata = {
-  title: "Writeups | iihnsight",
+  title: "Writeups | MyKisahGua",
   description: "Browse our latest cybersecurity research and technical writeups.",
 };
 
-export default function BlogIndex() {
-  const posts = getAllPosts();
+export default async function BlogIndex() {
+  const posts = await getAllPosts();
 
   return (
     <div className="container px-4 md:px-6 mx-auto py-24">

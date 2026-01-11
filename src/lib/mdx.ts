@@ -1,13 +1,13 @@
-import fs from "fs";
-import path from "path";
 import matter from "gray-matter";
 
-const contentDirectory = path.join(process.cwd(), "src/content/writeups");
+// TODO: Configure these in your .env.local file
+const GITHUB_USER = process.env.NEXT_PUBLIC_GITHUB_USER || "iihsann"; 
+const GITHUB_REPO = process.env.NEXT_PUBLIC_GITHUB_REPO || "mykisahgua-content";
+const GITHUB_PATH = process.env.NEXT_PUBLIC_GITHUB_PATH || "content";
+const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 
-// Ensure directory exists
-if (!fs.existsSync(contentDirectory)) {
-  fs.mkdirSync(contentDirectory, { recursive: true });
-}
+const HEADERS: HeadersInit = GITHUB_TOKEN ? { Authorization: `Bearer ${GITHUB_TOKEN}` } : {};
+const BASE_API = `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/${GITHUB_PATH}`;
 
 export interface Post {
   slug: string;
@@ -19,49 +19,51 @@ export interface Post {
   content: string;
 }
 
-export function getAllPosts(): Post[] {
-  const files = fs.readdirSync(contentDirectory);
+export async function getAllPosts(): Promise<Post[]> {
+  try {
+    const response = await fetch(BASE_API, { 
+      headers: HEADERS,
+      next: { revalidate: 60 } // Revalidate every 60s
+    });
 
-  const posts = files
-    .filter((file) => file.endsWith(".md"))
-    .map((file) => {
-      const slug = file.replace(/\.md$/, "");
-      const fullPath = path.join(contentDirectory, file);
-      const fileContents = fs.readFileSync(fullPath, "utf8");
-      const { data, content } = matter(fileContents);
+    if (!response.ok) {
+        console.warn(`[MDX] Failed to fetch content list: ${response.statusText}`);
+        return [];
+    }
 
-      return {
-        slug,
-        title: data.title || "Untitled",
-        date: data.date || new Date().toISOString(),
-        excerpt: data.excerpt || "",
-        coverImage: data.coverImage,
-        tags: data.tags || [],
-        content,
-      };
-    })
-    .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
+    const files = await response.json();
+    if (!Array.isArray(files)) return [];
 
-  return posts;
+    const posts = await Promise.all(
+      files
+        .filter((file: any) => file.name.endsWith(".md"))
+        .map(async (file: any) => {
+          const slug = file.name.replace(/\.md$/, "");
+          // Fetch raw content
+          const rawRes = await fetch(file.download_url, { headers: HEADERS });
+          const fileContents = await rawRes.text();
+          const { data, content } = matter(fileContents);
+
+          return {
+            slug,
+            title: data.title || "Untitled",
+            date: data.date || new Date().toISOString(),
+            excerpt: data.excerpt || "",
+            coverImage: data.coverImage,
+            tags: data.tags || [],
+            content,
+          };
+        })
+    );
+
+    return posts.sort((a, b) => (a.date > b.date ? -1 : 1));
+  } catch (error) {
+    console.error("[MDX] Error fetching posts:", error);
+    return [];
+  }
 }
 
-export function getPostBySlug(slug: string): Post | null {
-  const fullPath = path.join(contentDirectory, `${slug}.md`);
-  
-  if (!fs.existsSync(fullPath)) {
-    return null;
-  }
-
-  const fileContents = fs.readFileSync(fullPath, "utf8");
-  const { data, content } = matter(fileContents);
-
-  return {
-    slug,
-    title: data.title,
-    date: data.date,
-    excerpt: data.excerpt,
-    coverImage: data.coverImage,
-    tags: data.tags || [],
-    content,
-  };
+export async function getPostBySlug(slug: string): Promise<Post | null> {
+  const allPosts = await getAllPosts();
+  return allPosts.find((post) => post.slug === slug) || null;
 }
