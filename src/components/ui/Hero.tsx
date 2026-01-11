@@ -24,7 +24,7 @@ export function Hero() {
         
         <h1 className="text-5xl font-extrabold tracking-tight text-foreground sm:text-7xl md:text-8xl text-glow">
           Uncovering the
-          <span className="block text-transparent bg-clip-text bg-gradient-to-r from-foreground to-muted-foreground">
+          <span className="block text-transparent bg-clip-text bg-linear-to-r from-foreground to-muted-foreground">
             Unknown
           </span>
         </h1>

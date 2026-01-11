@@ -2,7 +2,7 @@ import matter from "gray-matter";
 
 // TODO: Configure these in your .env.local file
 const GITHUB_USER = process.env.NEXT_PUBLIC_GITHUB_USER || "iihsann"; 
-const GITHUB_REPO = process.env.NEXT_PUBLIC_GITHUB_REPO || "mykisahgua-content";
+const GITHUB_REPO = process.env.NEXT_PUBLIC_GITHUB_REPO || "mykisahgue-content";
 const GITHUB_PATH = process.env.NEXT_PUBLIC_GITHUB_PATH || "content";
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 

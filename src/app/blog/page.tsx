@@ -2,7 +2,7 @@ import { WriteupCard } from "@/components/ui/WriteupCard";
 import { getAllPosts } from "@/lib/mdx";
 
 export const metadata = {
-  title: "Writeups | MyKisahGua",
+  title: "Writeups | MyKisahGue",
   description: "Browse our latest cybersecurity research and technical writeups.",
 };
 

@@ -19,8 +19,7 @@ export function Navbar() {
       <div className="container flex h-16 items-center justify-between px-4 md:px-6 mx-auto">
         <Link href="/" className="mr-6 flex items-center space-x-2">
           <span className="ml-2 text-lg font-bold tracking-tight">
-            <span className="text-foreground">MyKisah</span>
-            <span className="text-secondary-foreground/60">Gua</span>
+            MyKisah<span className="text-primary">Gue</span>
           </span>
         </Link>
         <nav className="hidden md:flex gap-6">

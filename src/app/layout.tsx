@@ -39,41 +39,36 @@ export const metadata: Metadata = {
     "Portfolio",
     "Developer",
     "Writeups",
+    "Blog",
     "Research"
   ],
-  authors: [{ name: "Ihsan Restu Adi" }],
+  authors: [{ name: "Ihsan" }],
+  creator: "Ihsan",
   icons: {
     icon: "/favicon.ico",
     apple: "/apple-touch-icon.png"
   },
   openGraph: {
-    title: "MyKisahGua | Cybersecurity Research",
-    description:
-      "In-depth cybersecurity research, vulnerability analysis, and technical writeups by Ihsan Restu Adi.",
-    url: "https://www.iihn.fun",
-    siteName: "iihnsight",
-    images: [
-      {
-        url: "https://www.iihn.fun/opengraph-image.jpg",
-        width: 1200,
-        height: 630
-      }
-    ],
     type: "website",
-    locale: "en_US"
+    locale: "en_US",
+    url: "https://blog.iihn.fun",
+    title: "MyKisahGue | Cybersecurity Research",
+    description: "In-depth technical writeups and security research findings.",
+    siteName: "MyKisahGue",
   },
   robots: {
     index: true,
     follow: true
   },
   alternates: {
-    canonical: "https://www.iihn.fun"
+    canonical: "https://blog.iihn.fun"
   },
   twitter: {
     card: "summary_large_image",
-    title: "MyKisahGua | Cybersecurity Research",
-    description: "Cyber Security Research and Writeups by Ihsan Restu Adi",
-    images: "https://www.iihn.fun/opengraph-image.jpg",
+    title: "MyKisahGue | Cybersecurity Research",
+    description: "In-depth technical writeups and security research findings.",
+    creator: "@iihsann",
+    images: "https://blog.iihn.fun/opengraph-image.jpg",
   },
   verification: {
     google: "UPKAQQYkH1hUNYYGd4YFZZtGdEMAcvbLp1lRCa_htqQ",
@@ -87,7 +82,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning className="scroll-smooth">
-       <head>
+      <head>
         <Script
           id="structured-data"
           type="application/ld+json"
@@ -101,7 +96,7 @@ export default function RootLayout({
                   "name": "Ihsan Restu Adi",
                   "alternateName": "Ihsan",
                   "description": "Cyber Security Enthusiast, Ethical Hacker, Bug Bounty Hunter, Undergraduate Computer Science Student, and Developer.",
-                  "url": "https://www.iihn.fun",
+                  "url": "https://blog.iihn.fun",
                   "image": "https://www.iihn.fun/opengraph-image.jpg",
                   "sameAs": [
                     "https://github.com/ihsanlearn",
@@ -131,7 +126,7 @@ export default function RootLayout({
                 {
                   "@type": "Organization",
                   "@id": "https://www.iihn.fun/#hero",
-                  "name": "MyKisahGua",
+                  "name": "MyKisahGue",
                   "url": "https://www.iihn.fun",
                   "logo": "https://www.iihn.fun/opengraph-image.jpg",
                   "founder": { "@id": "https://www.iihn.fun/#about" },
@@ -146,7 +141,7 @@ export default function RootLayout({
                   "@type": "WebSite",
                   "@id": "https://www.iihn.fun/#hero",
                   "url": "https://www.iihn.fun",
-                  "name": "iihnsight | Cybersecurity Research",
+                  "name": "MyKisahGue | Cybersecurity Research",
                   "description":
                     "Portfolio and research website of Ihsan Restu Adi, Cyber Security Enthusiast and Developer.",
                   "publisher": {
